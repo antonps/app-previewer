@@ -1,0 +1,49 @@
+<html>
+	<head>
+	  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>App Previewer</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.rwdImageMaps.min.js"></script>
+	</head>
+	<body>
+<map name="app">
+ <area class="menu" shape="rect" coords="0,0,55,70" href="#" data-target="menu.png">
+ <area class="category" shape="rect" coords="0,340,358,558" href="#" data-target="category.png">
+ </map>
+
+
+		<img class="animated" src="home.png" usemap="#app">
+
+<script>
+	$(document).ready(function(e) {
+
+    	$('img[usemap]').rwdImageMaps();
+
+    	$('area.menu').click(function(){
+    		var newImg = $(this).attr('data-target');
+    		$('img').attr('src',newImg);
+    	});
+    	$('area.category').swipe({
+    		tap:function(){
+    				$('img').attr('src','category.png').toggleClass('zoomIn');
+    		}
+
+    	});
+    	 $('img').swipe({
+    	 	swipeRight:function() {
+    			$('img').attr('src','menu.png');
+       		},
+       		swipeLeft:function() {
+    			$('img').attr('src','home.png');
+       		}
+    	 });
+}	);
+</script>
+
+	</body>
+</html>
