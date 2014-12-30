@@ -14,45 +14,38 @@
 	<body>
 
 <map name="home">
- <area class="menu" shape="rect" coords="0,0,55,70" href="#" data-target="menu.png">
+ <area class="menu" shape="rect" coords="0,0,55,70" href="#" data-target="menu.png" data-map="home">
  <area class="promo" shape="rect" coords="73,561,137,616" href="#" data-target="promo.png" data-map="promo">
  <area class="best" shape="rect" coords="141,561,218,616" href="#" data-target="bestseller.png" data-map="promo">
  <area class="account" shape="rect" coords="219,561,291,616" href="#" data-target="account.png" data-map="account">
- <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png">
- <area class="home" shape="rect" coords="0,561,72,616" href="#" data-target="home.png">
+ <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png" data-map="home">
+ <area class="home" shape="rect" coords="0,561,72,616" href="#" data-target="home.png" data-map="home">
  </map>
 
  <map name="promo">
- <area class="sort" shape="rect" coords="122,46,238,86" href="#" data-target="sort.png">
- <area class="single" shape="rect" coords="5,189,357,285" href="#" data-target="single.png">
+ <area class="sort" shape="rect" coords="122,46,238,86" href="#" data-target="sort.png" data-map="promo">
+ <area class="single" shape="rect" coords="5,189,357,285" href="#" data-target="single.png" data-map="promo">
   <area class="home" shape="rect" coords="0,561,72,616" href="#" data-target="home.png" data-map="home">
-   <area class="best" shape="rect" coords="56,360,300,400" href="#" data-target="bestseller.png">
-   <area class="review" shape="rect" coords="244,386,347,424" href="#" data-target="review.png">
-    <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png">
+   <area class="best" shape="rect" coords="56,360,300,400" href="#" data-target="bestseller.png" data-map="promo">
+   <area class="review" shape="rect" coords="244,386,347,424" href="#" data-target="review.png" data-map="promo">
+ <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png" data-map="home">
  <area class="promo" shape="rect" coords="73,561,137,616" href="#" data-target="promo.png" data-map="promo">
  <area class="grid" shape="rect" coords="248,49,350,81" href="#" data-target="grid.png" data-map="promo">
   <area class="best" shape="rect" coords="141,561,218,616" href="#" data-target="bestseller.png" data-map="promo">
     <area class="account" shape="rect" coords="219,561,291,616" href="#" data-target="account.png" data-map="account">
-
-
-
 </map>
 
 <map name="account">
- <area class="setting" shape="rect" coords="51,172,131,278" href="#" data-target="settings.png">
- <area class="track" shape="rect" coords="208,172,319,278" href="#" data-target="track.png">
- <area class="address" shape="rect" coords="48,381,137,501" href="#" data-target="address.png">
- <area class="wishlist" shape="rect" coords="230,381,319,501" href="#" data-target="wishlist.png">
+ <area class="setting" shape="rect" coords="51,172,131,278" href="#" data-target="settings.png" data-map="account">
+ <area class="track" shape="rect" coords="208,172,319,278" href="#" data-target="track.png" data-map="account">
+ <area class="address" shape="rect" coords="48,381,137,501" href="#" data-target="address.png" data-map="account">
+ <area class="wishlist" shape="rect" coords="230,381,319,501" href="#" data-target="wishlist.png" data-map="account">
   <area class="account" shape="rect" coords="219,561,291,616" href="#" data-target="account.png" data-map="account">
-   <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png">
- <area class="home" shape="rect" coords="0,561,72,616" href="#" data-target="home.png">
+  <area class="cart" shape="rect" coords="292,561,357,616" href="#" data-target="cart.png" data-map="home">
+ <area class="home" shape="rect" coords="0,561,72,616" href="#" data-target="home.png" data-map="home">
  <area class="account" shape="rect" coords="219,561,291,616" href="#" data-target="account.png" data-map="account">
  <area class="promo" shape="rect" coords="73,561,137,616" href="#" data-target="promo.png" data-map="promo">
   <area class="best" shape="rect" coords="141,561,218,616" href="#" data-target="bestseller.png" data-map="promo">
-
-
-
-
 </map>
 
 
@@ -68,14 +61,14 @@ document.addEventListener("touchstart", function(){}, true);
     	$('area').click(function(){
             var newImg = $(this).attr('data-target');
     		var newMap = $(this).attr('data-map');
-    		$('img').attr({'src':newImg,'usemap':newMap});
+    		$('img').attr({'src':newImg,'usemap':'#'+newMap});
     	});
     	$('body').swipe({
     	 	swipeRight:function() {
     			$('img').attr('src','menu.png');
        		},
        		swipeLeft:function() {
-    			$('img').attr('src','home.png');
+    			$('img').attr('src','home.png').attr('usemap','#home');
        		}
     	 });
 }	);
